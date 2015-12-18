@@ -1,6 +1,6 @@
 nice = 0
 
-# Don't use regexes, i'd be fun they said...
+# Don't use regexes they said, it'd be fun they said...
 
 for word in open('input.txt'):
     pairs_pos = {}
