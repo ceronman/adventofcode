@@ -8,10 +8,10 @@ for line in open('input.txt'):
     for y in range(start_y, end_y+1):
         for x in range(start_x, end_x+1):
             if command == 'turn on':
-                grid[y][x] = 1
+                grid[y][x] += 1
             elif command == 'turn off':
-                grid[y][x] = 0
+                grid[y][x] = max(0, grid[y][x] - 1)
             elif command == 'toggle':
-                grid[y][x] = 0 if grid[y][x] else 1
+                grid[y][x] += 2
 
 print(sum(sum(row) for row in grid))
