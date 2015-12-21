@@ -2,7 +2,6 @@ import re
 import itertools
 
 
-people = {'Manuel'}
 point_diff = {'Manuel': {}}
 for line in open('input.txt'):
     m = re.match(r'(\w+) would (gain|lose) (\d+) happiness '
@@ -10,10 +9,9 @@ for line in open('input.txt'):
     person1, sign, points, person2 = m.groups()
     sign = '-' if sign == 'lose' else ''
     point_diff.setdefault(person1, {})[person2] = int(sign + points)
-    people.update((person1, person2))
 
 totals = []
-for comb in itertools.permutations(people):
+for comb in itertools.permutations(point_diff.keys()):
     total = 0
     for i, person in enumerate(comb):
         total += point_diff[person].get(comb[i-1], 0)
