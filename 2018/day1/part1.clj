@@ -1,6 +1,6 @@
-; (def freq-changes ["+1" "-2" "+3", "+1"])
+; (def input ["+1" "-2" "+3", "+1"])
 
-(def freq-changes
+(def input
   (clojure.string/split-lines (slurp "input1.txt")))
 
-(reduce + (map #(Integer/parseInt %) freq-changes))
+(reduce + (map #(Integer/parseInt %) input))
