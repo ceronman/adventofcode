@@ -22,6 +22,4 @@
         expected-lenght (- (count current-word) 1)
         common-chars-list (map #(common-chars current-word %) (rest words))
         match (first (filter #(= (count %) expected-lenght) common-chars-list))]
-    (if match
-      match
-      (recur (rest words)))))
+    (or match (recur (rest words)))))
