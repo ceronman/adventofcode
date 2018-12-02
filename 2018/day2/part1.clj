@@ -15,7 +15,7 @@
        (map frequencies)
        (map vals)
        (map set)
-       (filter (fn [repetitions] (contains? repetitions expected-count)))
+       (filter #(contains? % expected-count))
        (count)))
 
 (* (count-repeated input 2) (count-repeated input 3))

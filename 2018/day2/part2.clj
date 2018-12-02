@@ -21,8 +21,7 @@
   (let [current-word (first words)
         expected-lenght (- (count current-word) 1)
         common-chars-list (map #(common-chars current-word %) (rest words))
-        match (first (filter (fn [common] (= (count common) expected-lenght)) 
-                             common-chars-list))]
+        match (first (filter #(= (count %) expected-lenght) common-chars-list))]
     (if match
       match
       (recur (rest words)))))
