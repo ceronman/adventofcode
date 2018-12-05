@@ -1,8 +1,8 @@
 (use '[clojure.string :only [lower-case]])
 
-; (def input "dabAcCaCBAcCcaDA")
+(def input "dabAcCaCBAcCcaDA")
 
-(def input (slurp "input.txt"))
+; (def input (slurp "input.txt"))
 
 (defn cancel-out?
   [c1 c2]
