@@ -53,8 +53,7 @@
 
 (defn jump-op [computer pred]
   (if (pred (parmeter-value computer 1))
-    (-> computer
-        (assoc :pc (parmeter-value computer 2)))
+    (assoc computer :pc (parmeter-value computer 2))
     (advance computer 3)))
 
 
