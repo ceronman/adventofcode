@@ -1,3 +1,7 @@
+mod day1;
+
+use day1::day1;
+
 fn main() {
-    println!("Hello, world!");
+    println!("Hola mundo {}", day1());
 }
