@@ -1,7 +1,7 @@
 mod day1;
 
-use day1::day1;
 
 fn main() {
-    println!("Hola mundo {}", day1());
+    println!("Day 1 Part 1 {}", day1::part1());
+    println!("Day 1 Part 2 {}", day1::part2());
 }
