@@ -33,6 +33,12 @@ impl Entry {
         let count = self.password.chars().filter(|c| *c == self.c).count();
         count >= self.min && count <=self.max
     }
+
+    fn validate_fixed(&self) -> bool {
+        let c1 = self.password.chars().nth(self.min - 1).unwrap();
+        let c2 = self.password.chars().nth(self.max - 1).unwrap();
+        (c1 == self.c && c2 != self.c) || (c1 != self.c && c2 == self.c)
+    }
 }
 
 fn parse_input(input: &str) -> Vec<Entry> {
@@ -46,8 +52,21 @@ pub fn part1() -> usize {
     let input = fs::read_to_string("data/day2/input.txt")
         .expect("Unable to read file");
     
-    parse_input(input.as_str())
+    parse_input(&input)
         .into_iter()
-        .filter(|x| x.validate())
+        .filter(Entry::validate)
+        .count()
+}
+
+pub fn part2() -> usize {
+    // let input = "1-3 a: abcde\n\
+    //              1-3 b: cdefg\n\
+    //              2-9 c: ccccccccc";
+    let input = fs::read_to_string("data/day2/input.txt")
+        .expect("Unable to read file");
+    
+    parse_input(&input)
+        .into_iter()
+        .filter(Entry::validate_fixed)
         .count()
 }
