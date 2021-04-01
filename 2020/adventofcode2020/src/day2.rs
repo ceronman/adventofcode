@@ -46,9 +46,9 @@ fn parse_input(input: &str) -> Vec<Entry> {
 }
 
 pub fn part1() -> usize {
-    // let input = "1-3 a: abcde\n\
-    //              1-3 b: cdefg\n\
-    //              2-9 c: ccccccccc";
+//     let input = "1-3 a: abcde\n\
+//                  1-3 b: cdefg\n\
+//                  2-9 c: ccccccccc";
     let input = fs::read_to_string("data/day2/input.txt")
         .expect("Unable to read file");
     
@@ -59,9 +59,9 @@ pub fn part1() -> usize {
 }
 
 pub fn part2() -> usize {
-    // let input = "1-3 a: abcde\n\
-    //              1-3 b: cdefg\n\
-    //              2-9 c: ccccccccc";
+//    let input = "1-3 a: abcde\n\
+//                 1-3 b: cdefg\n\
+//                 2-9 c: ccccccccc";
     let input = fs::read_to_string("data/day2/input.txt")
         .expect("Unable to read file");
     
