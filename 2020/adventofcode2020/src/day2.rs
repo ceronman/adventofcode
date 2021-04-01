@@ -4,7 +4,7 @@ struct Entry {
     min: usize,
     max: usize,
     c: char,
-    password: String
+    password: String,
 }
 
 impl Entry {
@@ -25,13 +25,13 @@ impl Entry {
             min,
             max,
             c,
-            password
+            password,
         }
     }
 
     fn validate(&self) -> bool {
         let count = self.password.chars().filter(|c| *c == self.c).count();
-        count >= self.min && count <=self.max
+        count >= self.min && count <= self.max
     }
 
     fn validate_fixed(&self) -> bool {
@@ -46,12 +46,11 @@ fn parse_input(input: &str) -> Vec<Entry> {
 }
 
 pub fn part1() -> usize {
-//     let input = "1-3 a: abcde\n\
-//                  1-3 b: cdefg\n\
-//                  2-9 c: ccccccccc";
-    let input = fs::read_to_string("data/day2/input.txt")
-        .expect("Unable to read file");
-    
+    //     let input = "1-3 a: abcde\n\
+    //                  1-3 b: cdefg\n\
+    //                  2-9 c: ccccccccc";
+    let input = fs::read_to_string("data/day2/input.txt").expect("Unable to read file");
+
     parse_input(&input)
         .into_iter()
         .filter(Entry::validate)
@@ -59,12 +58,11 @@ pub fn part1() -> usize {
 }
 
 pub fn part2() -> usize {
-//    let input = "1-3 a: abcde\n\
-//                 1-3 b: cdefg\n\
-//                 2-9 c: ccccccccc";
-    let input = fs::read_to_string("data/day2/input.txt")
-        .expect("Unable to read file");
-    
+    //    let input = "1-3 a: abcde\n\
+    //                 1-3 b: cdefg\n\
+    //                 2-9 c: ccccccccc";
+    let input = fs::read_to_string("data/day2/input.txt").expect("Unable to read file");
+
     parse_input(&input)
         .into_iter()
         .filter(Entry::validate_fixed)

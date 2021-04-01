@@ -3,18 +3,14 @@ use std::fs;
 struct Navigation {
     map: Vec<Vec<char>>,
     x: usize,
-    y: usize
+    y: usize,
 }
 
 impl Navigation {
     fn move_right(&mut self, offset: usize) {
         let limit = self.map[self.y].len();
         let next = self.x + offset;
-        self.x = if next >= limit {
-            next - limit
-        } else {
-            next
-        }
+        self.x = if next >= limit { next - limit } else { next }
     }
 
     fn move_down(&mut self, offset: usize) {
@@ -31,31 +27,31 @@ impl Navigation {
 }
 
 fn parse_input(input: &str) -> Vec<Vec<char>> {
-    input.lines()
+    input
+        .lines()
         .map(|s| s.chars().collect::<Vec<char>>())
         .collect()
 }
 
 pub fn part1() -> usize {
-//    let input = "..##.......\n\
-//                 #...#...#..\n\
-//                 .#....#..#.\n\
-//                 ..#.#...#.#\n\
-//                 .#...##..#.\n\
-//                 ..#.##.....\n\
-//                 .#.#.#....#\n\
-//                 .#........#\n\
-//                 #.##...#...\n\
-//                 #...##....#\n\
-//                 .#..#...#.#";
-    
-    let input = fs::read_to_string("data/day3/input.txt")
-        .expect("Unable to read file");
-    
+    //    let input = "..##.......\n\
+    //                 #...#...#..\n\
+    //                 .#....#..#.\n\
+    //                 ..#.#...#.#\n\
+    //                 .#...##..#.\n\
+    //                 ..#.##.....\n\
+    //                 .#.#.#....#\n\
+    //                 .#........#\n\
+    //                 #.##...#...\n\
+    //                 #...##....#\n\
+    //                 .#..#...#.#";
+
+    let input = fs::read_to_string("data/day3/input.txt").expect("Unable to read file");
+
     let mut navigation = Navigation {
         map: parse_input(&input),
         x: 0,
-        y: 0
+        y: 0,
     };
 
     let mut count = 0;
@@ -69,6 +65,6 @@ pub fn part1() -> usize {
             count += 1;
         }
     }
-    
+
     count
 }
